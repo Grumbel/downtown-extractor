@@ -40,6 +40,9 @@ parser.add_option("-l", "--list",
 parser.add_option("-e", "--extract", 
                   dest="extract_files", action="store_true",
                   help="Extract resource files")
+parser.add_option("-r", "--resources", 
+                  dest="resources", default="resources",
+                  help="Prefix of the resource files, can be 'resources' or 'german'")
 
 (options, args) = parser.parse_args()
 
@@ -47,7 +50,7 @@ if not options.datadir:
     print "error: datadir not given"
     exit(1)
 
-sql = sqlite3.connect(os.path.join(options.datadir, 'resources.meta'))
+sql = sqlite3.connect(os.path.join(options.datadir, options.resources + '.meta'))
 cur = sql.cursor()
 
 if options.list_files:
@@ -83,7 +86,7 @@ else:
 
         # extract collected entries
         for resource_id, file_index, file_size, file_begin in entries:
-            datafile = os.path.join(options.datadir, "resources.d%03d" % file_index)
+            datafile = os.path.join(options.datadir, "%s.d%03d" % (options.resources, file_index))
             with open(datafile, "rb") as fin:
                 fin.seek(file_begin)
                 data = fin.read(file_size)

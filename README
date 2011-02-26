@@ -20,6 +20,10 @@ The data structure of these games is pretty straight forward:
 
  * there is a bunch of Python code and some Swig bindings
 
+ * voice files are in a separate set of resource files having the
+   prefix "german"
+
+
 Usage
 =====
 
@@ -43,6 +47,8 @@ To extract all data files:
      -g "sound/music/*.ogg"
 
 Target directory where the datafiles will be written can be given with --targetdir
+
+Voice files are in a separate set of resource files, use: "--resources german" to access them.
 
 
 # EOF #
