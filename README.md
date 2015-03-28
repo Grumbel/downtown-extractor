@@ -5,7 +5,7 @@ The Downtown Data Extractor allows the extraction of the data files
 (music, sound, textures, etc) from the following games:
 
  * Goin' Downtown
- * Everlight 
+ * Everlight
 
 The data structure of these games is pretty straight forward:
 
@@ -18,6 +18,8 @@ The data structure of these games is pretty straight forward:
 
  * textures are DDS
 
+ * animations file format is from Granny Animation
+
  * there is a bunch of Python code and some Swig bindings
 
  * voice files are in a separate set of resource files having the
@@ -25,30 +27,27 @@ The data structure of these games is pretty straight forward:
 
 
 Usage
-=====
+-----
 
 To display available file entries:
 
- $ downtown_extractor.py -d "/win/Program Files/The Games Company/Downtown/" --list
+    $ downtown_extractor.py -d "/win/Program Files/The Games Company/Downtown/" --list
 
 To extract a single file entry:
 
- $ downtown_extractor.py -d "/win/Program Files/The Games Company/Downtown/" --extract \
-     sound/music/dramatic.ogg
+    $ downtown_extractor.py -d "/win/Program Files/The Games Company/Downtown/" --extract \
+        sound/music/dramatic.ogg
 
 To extract a multiple entries by glob pattern:
 
- $ downtown_extractor.py -d "/win/Program Files/The Games Company/Downtown/" --extract \
-     -g "sound/music/*.ogg"
+    $ downtown_extractor.py -d "/win/Program Files/The Games Company/Downtown/" --extract \
+        -g "sound/music/*.ogg"
 
 To extract all data files:
 
- $ downtown_extractor.py -d "/win/Program Files/The Games Company/Downtown/" --extract \
-     -g "sound/music/*.ogg"
+    $ downtown_extractor.py -d "/win/Program Files/The Games Company/Downtown/" --extract \
+        -g "sound/music/*.ogg"
 
-Target directory where the datafiles will be written can be given with --targetdir
+Target directory where the datafiles will be written can be given with `--targetdir`
 
-Voice files are in a separate set of resource files, use: "--resources german" to access them.
-
-
-# EOF #
+Voice files are in a separate set of resource files, use: `--resources german` to access them.
