@@ -1,19 +1,20 @@
 #!/usr/bin/env python
-##  Downtown Extractor
-##  Copyright (C) 2011 Ingo Ruhnke <grumbel@gmx.de>
-##
-##  This program is free software: you can redistribute it and/or modify
-##  it under the terms of the GNU General Public License as published by
-##  the Free Software Foundation, either version 3 of the License, or
-##  (at your option) any later version.
-##
-##  This program is distributed in the hope that it will be useful,
-##  but WITHOUT ANY WARRANTY; without even the implied warranty of
-##  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##  GNU General Public License for more details.
-##
-##  You should have received a copy of the GNU General Public License
-##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# Downtown Extractor
+# Copyright (C) 2011 Ingo Ruhnke <grumbel@gmx.de>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sqlite3
 import os
@@ -28,19 +29,19 @@ parser.add_option("-t", "--targetdir", dest="targetdir", default=".",
 parser.add_option("-a", "--extract-all", metavar="DIR",
                   dest="extract_all", action="store_true",
                   help="Extract all resource files")
-parser.add_option("-s", "--stdout", 
+parser.add_option("-s", "--stdout",
                   dest="stdout", action="store_true",
                   help="Extract data to stdout")
 parser.add_option("-g", "--glob", metavar="PATTERN",
                   dest="glob_pattern",
                   help="Select files by glob pattern")
-parser.add_option("-l", "--list", 
+parser.add_option("-l", "--list",
                   dest="list_files", action="store_true",
                   help="List all resource files")
-parser.add_option("-e", "--extract", 
+parser.add_option("-e", "--extract",
                   dest="extract_files", action="store_true",
                   help="Extract resource files")
-parser.add_option("-r", "--resources", 
+parser.add_option("-r", "--resources",
                   dest="resources", default="resources",
                   help="Prefix of the resource files, can be 'resources' or 'german'")
 
@@ -61,7 +62,7 @@ else:
     if not options.glob_pattern and not options.extract_all and args == []:
         print "error: no files for extraction given"
         exit(1)
-        
+
     else:
         entries = []
 
@@ -102,5 +103,5 @@ else:
                         os.makedirs(outdir)
                     with open(outfile, "wb") as fout:
                         fout.write(data)
-                    
+
 # EOF #
