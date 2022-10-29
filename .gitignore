@@ -1,2 +1,5 @@
-data/
 *~
+/__pycache__/
+/data/
+/downtown_extractor.egg-info/
+/result
