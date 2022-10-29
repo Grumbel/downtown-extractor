@@ -49,7 +49,7 @@ parser.add_option("-r", "--resources",
 
 if not options.datadir:
     print("error: datadir not given")
-    exit(1)
+    sys.exit(1)
 
 sql = sqlite3.connect(os.path.join(options.datadir, options.resources + '.meta'))
 cur = sql.cursor()
@@ -61,7 +61,7 @@ if options.list_files:
 else:
     if not options.glob_pattern and not options.extract_all and args == []:
         print("error: no files for extraction given")
-        exit(1)
+        sys.exit(1)
 
     else:
         entries = []
@@ -94,7 +94,7 @@ else:
 
                 # write the data to the target directory
                 if options.stdout:
-                    sys.stdout.write(data)
+                    sys.stdout.buffer.write(data)
                 else:
                     outfile = os.path.join(options.targetdir, resource_id)
                     outdir = os.path.dirname(outfile)
